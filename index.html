@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Cloudflare CSS CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Weather Dashboard</title>
+
+</head>
+
+<body>
+    <div class="jumbotron container-fluid text-center p-2" style="background-color:#0443ca ;color: white;">
+        <h1> <strong>Weather Dashboard</strong></h1>
+    </div>
+    <div class="container">
+        <div class="search">
+            <div class="row">
+                <div class="col-sm-5 bg-light">
+                    <!--SFAC = 'Search for a city'-->
+                    <h3 class="SFAC"><strong>Search for a City:</strong></h3>
+                    <div class="searchCity">
+                        <input type="text" class="searchInput" id="searchBar" placeholder="Phoenix">
+                        <button type="submit" class="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="history"></div>
+                </div>
+            </div>
+        </div>
+        <div class="foreContainer">
+            <div class="forecast">
+                <div class="row">
+                    <h1 class="cityName">City Name</h1>
+                    <h1 class="currentDate"></h1>
+                </div>
+                <div class="row">
+                    <p class="temp">Temperature:</p>
+                </div>
+                <div class="row">
+                    <p class="humidity">Humidity:</p>
+                </div>
+                <div class="row">
+                    <p class="windSpeed">Wind Speed:</p>
+                </div>
+                <div class="row">
+                    <p class="uvIndex">UV Index:</p>
+                </div>
+            </div>
+            <div class="five-day-container">
+                <h1>5-Day Forecast:</h1>
+                <div class="card-row">
+                </div>
+            </div>
+        </div>
+        <!--Change lines 8 and 9 into script-->
+        <script src="./assets/script.js"></script>
+</body>
+
+</html>
