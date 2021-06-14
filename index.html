@@ -23,13 +23,12 @@
             <div class="row">
                 <div class="col-sm-5 bg-light">
                     <!--SFAC = 'Search for a city'-->
-                    <h3 class="SFAC"><strong>Search for a City:</strong></h3>
-                    <div class="searchCity">
+                    <h3> Search for a City: </h3>
+                    <form class="searchCity">
                         <input type="text" class="searchInput" id="searchBar" placeholder="Phoenix">
-                        <button type="submit" class="searchBtn">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+                        <button type="submit" class="searchButton" id="searchButton"><i
+                            class="fas fa-search"></i></button></button>
+                    </form>
                     <div class="history"></div>
                 </div>
             </div>
@@ -60,7 +59,11 @@
             </div>
         </div>
         <!--Change lines 8 and 9 into script-->
+        <!--<script src="https://code.jquery.com/jquery.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
         <script src="./assets/script.js"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </body>
 
 </html>
