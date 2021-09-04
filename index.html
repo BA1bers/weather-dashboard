@@ -15,41 +15,39 @@
 </head>
 
 <body>
-    <div class="jumbotron container-fluid text-center p-2" style="background-color:#0443ca ;color: white;">
-        <h1> <strong>Weather Dashboard</strong></h1>
-    </div>
     <div class="container">
         <div class="search">
+            <h1>Weather Dashboard</h1>
             <div class="row">
-                <div class="col-sm-5 bg-light">
+                <div class="col-sm-5">
                     <!--SFAC = 'Search for a city'-->
                     <h3> Search for a City: </h3>
                     <form class="searchCity">
                         <input type="text" class="searchInput" id="searchBar" placeholder="Phoenix">
                         <button type="submit" class="searchButton" id="searchButton"><i
-                            class="fas fa-search"></i></button></button>
+                                class="fas fa-search"></i></button>
                     </form>
-                    <div class="history"></div>
+                    <div id="history"></div>
                 </div>
             </div>
         </div>
         <div class="foreContainer">
             <div class="forecast">
                 <div class="row">
-                    <h1 class="cityName">City Name</h1>
+                    <h1 id="cityName"></h1>
                     <h1 class="currentDate"></h1>
                 </div>
                 <div class="row">
-                    <p class="temp">Temperature:</p>
+                    <p id="temp">Temperature: </p>
                 </div>
                 <div class="row">
-                    <p class="humidity">Humidity:</p>
+                    <p id="humidity">Humidity: </p>
                 </div>
                 <div class="row">
-                    <p class="windSpeed">Wind Speed:</p>
+                    <p id="windSpeed">Wind Speed: </p>
                 </div>
                 <div class="row">
-                    <p class="uvIndex">UV Index:</p>
+                    <p id="uvIndex">UV Index: </p>
                 </div>
             </div>
             <div class="five-day-container">
@@ -59,9 +57,9 @@
             </div>
         </div>
         <!--Change lines 8 and 9 into script-->
-        <!--<script src="https://code.jquery.com/jquery.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
+        
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/script.js"></script>
         <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </body>
