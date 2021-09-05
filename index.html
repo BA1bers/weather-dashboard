@@ -50,18 +50,51 @@
                     <p id="uvIndex">UV Index: </p>
                 </div>
             </div>
-            <div class="five-day-container">
-                <h1>5-Day Forecast:</h1>
-                <div class="card-row">
+            <h1>5-Day Forecast</h1>
+            <div class="card-group" id="fiveDayForecastContainer">
+                <div class="card">
+                    <p class="card-text" id="dayOne"></p>
+                    <p id="dayOneTemp"></p>
+                    <p id="dayOneWind"></p>
+                    <p id="dayOneHumidity"></p>
+                </div>
+
+                <div class="card">
+                    <p class="fiveDayWeather" id="dayTwo"></p>
+                    <p id="dayTwoTemp"></p>
+                    <p id="dayTwoWind"></p>
+                    <p id="dayTwoHumidity"></p>
+                </div>
+
+                <div class="card">
+                    <p class="fiveDayWeather" id="dayThree"></p>
+                    <p id="dayThreeTemp"></p>
+                    <p id="dayThreeWind"></p>
+                    <p id="dayThreeHumidity"></p>
+                </div>
+
+                <div class="card">
+                    <p class="fiveDayWeather" id="dayFour"></p>
+                    <p id="dayFourTemp"></p>
+                    <p id="dayFourWind"></p>
+                    <p id="dayFourHumidity"></p>
+                </div>
+
+                <div class="card">
+                    <p class="fiveDayWeather" id="dayFive"></p>
+                    <p id="dayFiveTemp"></p>
+                    <p id="dayFiveWind"></p>
+                    <p id="dayFiveHumidity"></p>
                 </div>
             </div>
         </div>
-        <!--Change lines 8 and 9 into script-->
-        
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-        <script src="./assets/script.js"></script>
-        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    </div>
+    <!--Change lines 8 and 9 into script-->
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/script.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </body>
 
 </html>

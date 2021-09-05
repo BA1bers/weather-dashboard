@@ -27,7 +27,7 @@ function grabWeather(city) {
             cityName.append(data.name);
             temp.append("Temperature: " + data.main.temp + "ºF");
             humidity.append("Humidity: " + data.main.humidity);
-            windSpeed.append("Wind Speed: " + data.wind.speed);
+            windSpeed.append("Wind Speed: " + data.wind.speed + "MPH");
             fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=minutely,hourly&appid=d89681d01b91040ec62000543fb31e40`).then(response => response.json())
                 .then(uvInfo => {
                     console.log(uvInfo)
@@ -36,10 +36,12 @@ function grabWeather(city) {
         });
     var cityVal = $("#searchBar").val()
 
+    fiveDayForecast()
+
     //makeNewCityBttn(cityVal)
     $("#searchBar").val("");
 
-    console.log(city.value)
+    console.log(city)
 };
 
 // Saves new city entry into local storage, second part creates one new for each search
@@ -60,8 +62,10 @@ function makeNewCityBttn(cityInfo) {
         event.preventDefault();
         clearOneDayForecastSection();
         grabWeather(newCityBttn.value)
+        fiveDayForecast(newCityBttn.value);
     })
     $("#history").append(newCityBttn);
+    
 }
 
 // The first function that gets called
@@ -83,12 +87,47 @@ function createCitiesOnFirstVisit() {
                 event.preventDefault();
                 clearOneDayForecastSection();
                 grabWeather(storedCity.value)
+                fiveDayForecast(storedCity.value)
             })
             $("#history").append(storedCity)
         }
         clearOneDayForecastSection();
     }
 }
+
+function fiveDayForecast(city) {
+        fetchFiveDayForecast(city)
+        .then(data => {
+            console.log(data)
+            $("#dayOne").text(`${dayjs.unix(data.daily[1].dt).format('(MM/DD/YYYY)')}`);
+            $("#dayOneTemp").text(`Temperature: ${data.daily[1].temp.day}°F`);
+            $("#dayOneHumidity").text(`Humidity: ${data.daily[1].humidity}%`);
+            $("#dayOneWind").text(`Wind Speed:  ${data.daily[1].wind_speed} MPH`);
+
+            $("#dayTwo").text(`${dayjs.unix(data.daily[2].dt).format('(MM/DD/YYYY)')}`);
+            $("#dayTwoTemp").text(`Temperature: ${data.daily[2].temp.day}°F`);
+            $("#dayTwoHumidity").text(`Humidity: ${data.daily[2].humidity}%`);
+            $("#dayTwoWind").text(`Wind Speed:  ${data.daily[2].wind_speed} MPH`);
+
+            $("#dayThree").text(`${dayjs.unix(data.daily[3].dt).format('(MM/DD/YYYY)')}`);
+            $("#dayThreeTemp").text(`Temperature: ${data.daily[3].temp.day}°F`);
+            $("#dayThreeHumidity").text(`Humidity: ${data.daily[3].humidity}%`);
+            $("#dayThreeWind").text(`Wind Speed: ${data.daily[3].wind_speed} MPH`);
+
+            $("#dayFour").text(`${dayjs.unix(data.daily[4].dt).format('(MM/DD/YYYY)')}`);
+            $("#dayFourTemp").text(`Temperature: ${data.daily[4].temp.day}°F`);
+            $("#dayFourHumidity").text(`Humidity: ${data.daily[4].humidity}%`);
+            $("#dayFourWind").text(`Wind Speed:  ${data.daily[4].wind_speed} MPH`);
+
+            $("#dayFive").text(`${dayjs.unix(data.daily[5].dt).format('(MM/DD/YYYY)')}`);
+            $("#dayFiveTemp").text(`Temperature: ${data.daily[5].temp.day}°F`);
+            $("#dayFiveHumidity").text(`Humidity: ${data.daily[5].humidity}%`);
+            $("#dayFiveWind").text(`Wind Speed:  ${data.daily[5].wind_speed} MPH`);
+        })
+
+}
+
+
 
 // When the user uses the input box to search for a new city, it clears the previous search
 $(".searchCity").on("submit", function (event) {
@@ -98,8 +137,20 @@ $(".searchCity").on("submit", function (event) {
     console.log(city);
     grabWeather(city);
     makeNewCityBttn(city);
+    fiveDayForecast(city);
 })
 createCitiesOnFirstVisit()
+
+function fetchFiveDayForecast(city) {
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=d89681d01b91040ec62000543fb31e40`)
+        .then(response => response.json())
+        .then(data => fetchFiveDayForecastCoord(data.coord.lat, data.coord.lon));
+}
+
+function fetchFiveDayForecastCoord(lat, lon) {
+    return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=d89681d01b91040ec62000543fb31e40`)
+        .then(response => response.json());
+}
 
 // function clear() {
 //     $("#temp")

@@ -55,12 +55,14 @@ input {
     padding: 20px;
     margin-right: 30px;
     background-color: rgb(24, 30, 54);
+    max-width: 25%;
 }
 
 .search h1 {
     padding-top: 18px;
     padding-bottom: 30px;
     font-weight: 800;
+    padding-left: 70px;
 }
 
 .forecast {
@@ -74,37 +76,19 @@ input {
     height: 40%;
 }
 
-.five-day-container h1 {
-    margin-top: 25px;
-    margin-left: 5%;
+.fiveDayForecastContainer {
+    background-color: rgb(45, 51, 73);
 }
 
-.card-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.five-day-card {
-    margin-left: 58.5px;
-    width: 175px;
-    height: auto;
+.card {
+    background-color: rgb(24, 30, 54);
+    margin: 15px;
+    padding: 10px;
     border-radius: 5px;
-    color: white;
-    font-size: larger;
-    background-color: #3498db;
 }
 
-.five-day-container .card-text {
-    margin-bottom: 15px;
-    padding: 10px 30px 5px 10px;
-}
-
-.five-day-card h3 {
-    margin: 5px;
-}
-
-.five-day-card img {
-    margin-left: 10%;
+.btn {
+    margin-top: 10px;
 }
 
 .historyItems {
